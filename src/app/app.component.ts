@@ -45,4 +45,37 @@ export class AppComponent {
 
     sections.forEach(section => observer.observe(section));
   }
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+  scrollToSection(id: string) {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
+  showScrollTop = false;
+
+  ngOnInit() {
+    window.addEventListener('scroll', () => {
+      this.showScrollTop = window.scrollY > window.innerHeight * 0.8;
+    });
+  }
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 }

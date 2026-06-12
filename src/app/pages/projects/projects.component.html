@@ -14,46 +14,129 @@
 
         <div class="projects-grid">
 
-            <div class="project-card" *ngFor="let project of projects; let i = index" [class.visible]="isVisible"
-                [style.transition-delay]="(0.15 + i * 0.1) + 's'">
-                <div class="window-bar">
-                    <div class="dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+            <div class="project-card" *ngFor="let project of projects; let i=index" [class.visible]="isVisible"
+                [style.transition-delay]="(i * 0.15)+'s'">
 
-                    <span class="window-file">
-                        {{ project.file }}
-                    </span>
-                </div>
 
-                <img class="project-image" [src]="project.image" [alt]="project.title" />
+                <div class="project-preview">
 
-                <div class="project-body">
+                    <div class="window-bar">
 
-                    <h3>
-                        {{ project.title }}
-                    </h3>
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
 
-                    <p class="problem">
-                        PROBLEM_SOLVED:
-                        <span>{{ project.description }}</span>
-                    </p>
 
-                    <div class="stack">
+                        <span class="preview-text">
+                            PREVIEW
+                        </span>
 
-                        <span *ngFor="let tech of project.tech">
-                            {{ tech }}
+
+                        <span class="file-name">
+                            {{project.file}}
                         </span>
 
                     </div>
 
-                    <a [href]="project.link" target="_blank" class="view-btn">
-                        EXECUTE --> VIEW_PROJECT
-                    </a>
+
+                    <img class="project-image" [src]="project.image" [alt]="project.title">
+
+
+                    <div class="deploy-status">
+
+                        $
+                        Status: Successfully Deployed
+
+                    </div>
 
                 </div>
+
+
+
+                <div class="project-body">
+
+
+                    <div class="project-head">
+
+                        <span class="project-number">
+                            0{{i+1}}
+                        </span>
+
+
+                        <div>
+
+                            <span class="deploy-badge">
+                                DEPLOYED ✓
+                            </span>
+
+
+                            <span class="year">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <h3>
+                        {{project.title}}
+                    </h3>
+
+
+                    <p class="project-type">
+                        {{i == 0 ? 'Healthcare Management Platform' :
+                        i == 1 ? 'AI-Powered Dashboard' :
+                        'E-Commerce Platform'}}
+                    </p>
+
+
+
+                    <p class="problem">
+
+                        {{project.description}}
+
+                    </p>
+
+
+
+                    <div class="stack">
+
+                        <span *ngFor="let tech of project.tech">
+                            {{tech}}
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="buttons">
+
+
+                        <a [href]="project.link" target="_blank" class="view-btn">
+
+                            ↗ LIVE DEMO
+
+                        </a>
+
+
+
+                        <a *ngIf="project.github" [target]="'_blank'" [href]="project.github" class="view-btn github">
+
+                            ◉ GITHUB
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 

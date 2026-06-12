@@ -2,37 +2,38 @@
 
     <div class="grid-bg"></div>
 
-    <!-- Navbar -->
     <header class="top-nav">
 
         <div class="logo-wrap">
             <span class="logo-icon">&gt;_</span>
             <span class="logo-text">&lt;sherifaa.dev /&gt;</span>
         </div>
-
-        <nav class="nav-links">
-            <a href="#about" [class.active]="activeSection === 'about'">
-                01.ABOUT
+        <button class="menu-btn" (click)="toggleMenu()">
+            ☰
+        </button>
+        <nav class="nav-links" [class.mobile-open]="menuOpen">
+            <a href="#about" [class.active]="activeSection === 'about'"
+                (click)="scrollToSection('about'); closeMenu()">01.ABOUT
+            </a>
+            <a href=" #skills" [class.active]="activeSection === 'skills'"
+                (click)="scrollToSection('skills'); closeMenu()">
+                02.Skills
+            </a>
+            <a href="#projects" [class.active]="activeSection === 'projects' "
+                (click)="scrollToSection('projects'); closeMenu()">
+                03.WORK
             </a>
 
-            <a href="#projects" [class.active]="activeSection === 'projects'">
-                02.WORK
-            </a>
-
-            <a href="#skills" [class.active]="activeSection === 'skills'">
-                03.STACK
-            </a>
-
-            <a href="#contact" [class.active]="activeSection === 'contact'">
+            <a href=" #contact" [class.active]="activeSection === 'contact'"
+                (click)="scrollToSection('contact'); closeMenu()">
                 04.CONTACT
             </a>
         </nav>
 
     </header>
 
-    <!-- Sidebar -->
 
-    <aside class="left-bar">
+    <aside class=" left-bar">
 
         <div class="left-nums">
             <span>&lt;</span>
@@ -78,5 +79,7 @@
         <app-contact id="contact"></app-contact>
         <app-footer></app-footer>
     </main>
-
+    <button class="scroll-top-btn" [class.show]="showScrollTop" (click)="scrollToTop()">
+        ↑
+    </button>
 </div>

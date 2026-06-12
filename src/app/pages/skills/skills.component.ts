@@ -83,13 +83,14 @@ export class SkillsComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          this.isVisible = true;
-          observer.disconnect();
-        }
+        this.isVisible = entry.isIntersecting;
       },
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px',
+      }
     );
+
     observer.observe(this.skillsSection.nativeElement);
   }
 }
