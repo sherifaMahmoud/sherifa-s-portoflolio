@@ -1,0 +1,189 @@
+
+.hero-wrap{
+  max-width:1400px;
+  margin:auto;
+  padding:80px 40px;
+}
+
+.hero-content {
+  width: 100%;
+}
+
+
+
+
+.terminal-line {
+  color: #00dfff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 22px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 2px solid #14dfff;
+
+  animation:
+    typing 2s steps(30) forwards,
+    blink 0.8s step-end infinite;
+}
+
+.terminal-line .arrow {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+
+.divider {
+  height: 4px;
+  background: linear-gradient(to right, #00dfff, #00ff88);
+  margin-bottom: 50px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: dividerGrow 0.8s ease forwards;
+  animation-delay: 2.1s;
+}
+
+
+.hero-title {
+  color: #ececff;
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 2.5s;
+}
+
+.hero-title span {
+  color: #14dfff;
+  display: inline-block;
+  animation: glow 2s ease-in-out infinite alternate;
+  animation-delay: 3.3s;
+}
+
+
+.code-card {
+  background: rgba(30, 38, 62, 0.92);
+  border-radius: 8px;
+  padding: 32px 36px;
+  max-width: 700px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(35px) scale(0.96);
+  animation: cardShow 0.8s ease forwards;
+  animation-delay: 2.9s;
+  transition: box-shadow 0.35s;
+}
+
+.code-card:hover {
+  box-shadow:
+    0 0 15px rgba(20, 223, 255, 0.2),
+    0 0 35px rgba(20, 223, 255, 0.08);
+}
+
+.code-card pre {
+  color: #3cff78;
+  font-size: 17px;
+  line-height: 2;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.code-card pre .value {
+  animation: valueGlow 2s infinite alternate;
+}
+
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #14dfff;
+  color: #000;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 22px 40px;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 3.3s;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 8px #14dfff,
+    0 0 20px #14dfff,
+    0 0 40px #14dfff;
+}
+
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeXml {
+  to {
+    opacity: 0.2;
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to   { width: 28ch }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes dividerGrow {
+  to { transform: scaleX(1) }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardShow {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #14dfff,
+      0 0 10px #14dfff;
+  }
+  to {
+    text-shadow:
+      0 0 10px #14dfff,
+      0 0 25px #14dfff,
+      0 0 40px #14dfff;
+  }
+}
+
+@keyframes valueGlow {
+  from { color: #14dfff }
+  to   { color: #67f7ff }
+}

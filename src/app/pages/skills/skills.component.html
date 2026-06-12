@@ -1,0 +1,53 @@
+<section class="skills-section" id="stack" #skillsSection [class.show]="isVisible">
+
+    <span class="xml-hint">&lt;section id="skill"&gt;</span>
+
+    <div class="skills-container">
+
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-num">02.</span> Tech_Modules.json
+            </h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card" *ngFor="let skill of skills; let i = index"
+                [style.animation-delay]="(i * 0.12) + 's'" [class.card-visible]="isVisible">
+                <div class="card-top-row">
+                    <span class="skill-tag">{{ skill.tag }}</span>
+                    <span class="skill-module">MODULE_0{{ i + 1 }}</span>
+                </div>
+                <div class="card-icon">
+                    <i [class]="skill.icon + ' colored'"></i>
+                </div>
+                <h3 class="skill-name">{{ skill.name }}</h3>
+
+                <div class="skill-bar-wrap">
+                    <div class="skill-bar" [style.width]="isVisible ? skill.level + '%' : '0%'"
+                        [style.transition-delay]="(0.5 + i * 0.08) + 's'">
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <span class="skill-level-label">{{ skill.levelLabel }}</span>
+                    <span class="skill-percent">{{ skill.level }}%</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="terminal-footer" [class.footer-visible]="isVisible">
+            <span class="terminal-prompt">&gt; </span>
+            <span class="footer-text">Skill.length</span>
+            <span class="footer-arrow"> → </span>
+            <span class="footer-count">{{ skills.length }}_modules_loaded</span>
+        </div>
+
+    </div>
+
+    <span class="xml-hint xml-close">&lt;/section&gt;</span>
+
+</section>

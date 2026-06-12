@@ -1,0 +1,68 @@
+<section class="projects-section" id="projects" #projectsSection [class.show]="isVisible">
+    <span class="xml-hint">&lt;section id="projects"&gt;</span>
+
+    <div class="projects-container">
+
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="section-num">03.</span>
+                Deployment_History.sh
+            </h2>
+
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card" *ngFor="let project of projects; let i = index" [class.visible]="isVisible"
+                [style.transition-delay]="(0.15 + i * 0.1) + 's'">
+                <div class="window-bar">
+                    <div class="dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span class="window-file">
+                        {{ project.file }}
+                    </span>
+                </div>
+
+                <img class="project-image" [src]="project.image" [alt]="project.title" />
+
+                <div class="project-body">
+
+                    <h3>
+                        {{ project.title }}
+                    </h3>
+
+                    <p class="problem">
+                        PROBLEM_SOLVED:
+                        <span>{{ project.description }}</span>
+                    </p>
+
+                    <div class="stack">
+
+                        <span *ngFor="let tech of project.tech">
+                            {{ tech }}
+                        </span>
+
+                    </div>
+
+                    <a [href]="project.link" target="_blank" class="view-btn">
+                        EXECUTE --> VIEW_PROJECT
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <span class="xml-hint xml-close">
+        &lt;/section&gt;
+    </span>
+
+</section>

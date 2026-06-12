@@ -1,0 +1,74 @@
+<section class="contact-section" id="contact" #contactSection [class.show]="isVisible">
+    <span class="xml-hint">&lt;section id="contact"&gt;</span>
+
+    <div class="contact-container">
+
+        <div class="terminal-window">
+
+            <div class="terminal-header">
+
+                <div class="terminal-dots">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+                </div>
+
+                <span class="terminal-file">
+                    ROOT&#64; DEV:~# contact_init.sh
+                </span>
+
+                <span class="terminal-close">×</span>
+
+            </div>
+
+            <div class="terminal-body">
+                <div class="terminal-status" *ngIf="statusMessage" [class.success]="statusType === 'success'"
+                    [class.error]="statusType === 'error'">
+                    <span class="prompt">&gt;</span>
+                    {{ statusMessage }}
+                </div>
+                <h2>
+                    Got a <span>Project?</span> Let's talk
+                </h2>
+
+                <p>
+                    I'm currently looking for new opportunities and collaborations.
+                    Drop me a line and let's build something extraordinary.
+                </p>
+
+                <form (ngSubmit)="sendEmail()">
+
+                    <input type="text" name="name" [(ngModel)]="form.name" placeholder="Your Name" required />
+
+                    <input type="email" name="email" [(ngModel)]="form.email" placeholder="Your Email" required />
+
+                    <textarea name="message" [(ngModel)]="form.message" placeholder="Your Message" rows="6"
+                        required></textarea>
+
+                    <button type="submit" [disabled]="isSending">
+                        {{ isSending ? 'Sending...' : 'SEND_MESSAGE.call()' }}
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="terminal-footer">
+
+                <span>Ln 42, Col 1</span>
+
+                <span>UTF-8</span>
+
+                <span>CONNECTION: ENCRYPTED</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <span class="xml-hint xml-close">
+        &lt;/section&gt;
+    </span>
+
+</section>
